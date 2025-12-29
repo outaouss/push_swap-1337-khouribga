@@ -51,6 +51,21 @@ int stack_len(t_node *stack)
     return count;
 }
 
+int get_position(t_node *stack, t_node *target)
+{
+    int pos;
+
+    pos = 0;
+    while (stack)
+    {
+        if (stack == target)
+            return pos;
+        pos++;
+        stack = stack->next;
+    }
+    return pos;
+}
+
 // int main()
 // {
 //     t_node *node1 = malloc(sizeof(t_node));

@@ -31,6 +31,55 @@ void sort_five(t_node **stack_a, t_node **stack_b)
         pa(stack_a, stack_b);
 }
 
+void k_sort_phase1(t_node **stack_a, t_node ** stack_b)
+{
+    int len;
+    int range;
+    int i;
+
+    i = 0;
+    len = stack_len(*stack_a);
+    if (len <= 100)
+        range = 15; 
+    else
+        range = 35;
+    while (*stack_a)
+    {
+        if ((*stack_a)->index <= i)
+        {
+            pb(stack_a, stack_b);
+            rb(stack_b);
+        }
+        else if ((*stack_a)->index <= (i + range))
+            pb(stack_a, stack_b);
+        else
+            ra(stack_a); 
+        i++;
+    }
+}
+
+void k_sort_phase2(t_node **stack_a, t_node **stack_b)
+{
+    t_node *max_index;
+    int pos;
+    int len;
+
+    while (*stack_b)
+    {
+        max_index = find_max_index(*stack_b);
+        pos = get_position(*stack_b, max_index);
+        len = stack_len(*stack_b);
+        while(*stack_b != max_index)
+        {
+            if (pos <= len / 2)
+                rb(stack_b);
+            else
+                rrb(stack_b);
+        }
+        pa(stack_a, stack_b);
+    }
+}
+
 // int main()
 // {
 //     t_node *node1 = malloc(sizeof(t_node));

@@ -35,10 +35,13 @@ int main(int ac, char **av)
 			sort_three(&stack_a);
 		else if (stack_len(stack_a) <= 5)
 			sort_five(&stack_a, &stack_b);
-		// else
-		// 	algo(); // bigeer algo here ! ! !
+		else
+		{
+			k_sort_phase1(&stack_a, &stack_b);
+			k_sort_phase2(&stack_a, &stack_b);
+		}
 	}
-	print_stack(stack_a);
+	// print_stack(stack_a);
 	free_stack(&stack_a);
 	return (0);
 }

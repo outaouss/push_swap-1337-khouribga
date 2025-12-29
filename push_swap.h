@@ -52,6 +52,9 @@ void sort_three(t_node **stack);
 void sort_five(t_node **stack_a, t_node **stack_b);
 t_node *find_max_index(t_node *stack);
 t_node *find_min_index(t_node *stack);
+int get_position(t_node *stack, t_node *target);
+void k_sort_phase1(t_node **stack_a, t_node ** stack_b);
+void k_sort_phase2(t_node **stack_a, t_node ** stack_b);
 
 //// To Remove 
 
