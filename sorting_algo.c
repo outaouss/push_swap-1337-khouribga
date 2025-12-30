@@ -42,7 +42,7 @@ void k_sort_phase1(t_node **stack_a, t_node ** stack_b)
     if (len <= 100)
         range = 16; 
     else
-        range = 33;
+        range = 44;
     while (*stack_a)
     {
         if ((*stack_a)->index <= i)
@@ -64,17 +64,15 @@ void k_sort_phase1(t_node **stack_a, t_node ** stack_b)
 void k_sort_phase2(t_node **stack_a, t_node **stack_b)
 {
     t_node *max_index;
-    t_node *seconde_max_index;
     int pos;
 
     while (*stack_b)
     {
         max_index = find_max_index(*stack_b);
-        seconde_max_index= find_seconde_index(*stack_b);
         pos = get_position(*stack_b, max_index);
         while(*stack_b != max_index)
         {
-            if ((*stack_b)->index == seconde_max_index->index)
+            if ((*stack_b)->index == max_index->index - 1)
                 pa(stack_a, stack_b);
             else if (pos <= stack_len(*stack_b) / 2)
                 rb(stack_b);
