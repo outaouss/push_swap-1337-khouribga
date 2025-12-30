@@ -1,13 +1,13 @@
 #include "push_swap.h"
 
-void print_index(t_node *head)
-{
-    while (head)
-    {
-        printf("%d\n", head->index);
-        head = head->next;
-    }
-}
+// void print_index(t_node *head)
+// {
+//     while (head)
+//     {
+//         printf("%d\n", head->index);
+//         head = head->next;
+//     }
+// }
 int main(int ac, char **av)
 {
 	t_node *stack_a;
