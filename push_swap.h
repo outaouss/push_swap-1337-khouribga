@@ -31,8 +31,10 @@ void push(t_node **stack_a, t_node **stack_b);
 void pa(t_node **stack_a, t_node **stack_b);
 void pb(t_node **stack_a, t_node **stack_b);
 void error_exit(t_node **stack);
+void error_exit_av(t_node **stack, char **av);
 void free_stack(t_node **stack);
-long ft_atoi(char *str, t_node **stack);
+long ft_atoi(char *str, t_node **stack, char **av);
+// long ft_atoi(char *str);
 int has_duplicated(t_node *stack_a, long checker);
 void stack_add_back(t_node **stack, t_node *to_add);
 t_node *create_node(long value, t_node **stack);
@@ -55,6 +57,7 @@ t_node *find_min_index(t_node *stack);
 int get_position(t_node *stack, t_node *target);
 void k_sort_phase1(t_node **stack_a, t_node ** stack_b);
 void k_sort_phase2(t_node **stack_a, t_node ** stack_b);
+t_node *find_seconde_index(t_node *stack);
 
 //// To Remove 
 

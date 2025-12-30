@@ -30,6 +30,16 @@ void free_matrix(char **matrix)
     free(matrix);
 }
 
+void error_exit_av(t_node **stack, char **av)
+{
+    if (stack && *stack)
+        free_stack(stack);
+    if (av && *av)
+        free_matrix(av);
+    write(2, "Error\n", 6);
+    exit(1);
+}
+
 void error_exit(t_node **stack)
 {
     if (stack && *stack)

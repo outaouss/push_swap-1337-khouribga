@@ -24,8 +24,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (substring);
 }
 
-long ft_atoi(char *str, t_node **stack)
+long ft_atoi(char *str, t_node **stack, char **av)
+// long ft_atoi(char *str)
 {
+    (void)av;
     long result;
     int i;
     int sign;
@@ -41,15 +43,18 @@ long ft_atoi(char *str, t_node **stack)
             sign = -sign;
     }
     if (!(str[i] >= '0' && str[i] <= '9'))
-        error_exit(stack);
+        error_exit_av(stack, av);
+        // return 0;
     while (str[i] >= '0' && str[i] <= '9')
     {
         result = (result * 10) + (str[i++] - '0');
         if (result * sign > 2147483647 || result * sign < -2147483648)
-            error_exit(stack);
+            error_exit_av(stack, av);
+            // return 0;
     }
     if (str[i] != '\0')
-        error_exit(stack);
+        error_exit_av(stack, av);
+        // return 0;
     return (result * sign);
 }
 

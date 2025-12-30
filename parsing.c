@@ -41,7 +41,7 @@ void fill_stack_a(t_node **stack_a, char **av)
 		error_exit(stack_a);
 	while (av[i] != NULL)
 	{
-	   result = ft_atoi(av[i], stack_a);
+	   result = ft_atoi(av[i], stack_a, av);
 	   has_duplicated(*stack_a, result);
 	   new_node = create_node(result, stack_a);
 	   stack_add_back(stack_a, new_node);
