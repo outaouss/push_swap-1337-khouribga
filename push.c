@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: outaouss <outaouss@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/01 16:06:37 by outaouss          #+#    #+#             */
+/*   Updated: 2026/01/01 16:14:58 by outaouss         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	push(t_node **stack_a, t_node **stack_b)
@@ -12,7 +24,7 @@ void	push(t_node **stack_a, t_node **stack_b)
 	if (first_a->next)
 	{
 		*stack_a = first_a->next;
-		(*stack_a)->previous = NULL; 
+		(*stack_a)->previous = NULL;
 	}
 	else
 		*stack_a = NULL;
@@ -28,6 +40,7 @@ void	pa(t_node **stack_a, t_node **stack_b)
 	push(stack_b, stack_a);
 	write(1, "pa\n", 3);
 }
+
 void	pb(t_node **stack_a, t_node **stack_b)
 {
 	push(stack_a, stack_b);

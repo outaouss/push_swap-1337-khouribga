@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: outaouss <outaouss@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/01 16:06:39 by outaouss          #+#    #+#             */
+/*   Updated: 2026/01/01 16:15:19 by outaouss         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	reverse_rotate(t_node **stack)
@@ -7,12 +19,9 @@ void	reverse_rotate(t_node **stack)
 	if (!*stack || !(*stack)->next)
 		return ;
 	last = find_last_node(*stack);
-
 	last->previous->next = NULL;
-
 	last->next = *stack;
 	last->previous = NULL;
-
 	(*stack)->previous = last;
 	*stack = last;
 }

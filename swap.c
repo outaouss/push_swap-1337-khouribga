@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   swap.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: outaouss <outaouss@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/01 16:06:53 by outaouss          #+#    #+#             */
+/*   Updated: 2026/01/01 16:18:51 by outaouss         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	swap(t_node **stack)
@@ -7,19 +19,14 @@ void	swap(t_node **stack)
 
 	if (!*stack || !(*stack)->next)
 		return ;
-
 	first = *stack;
 	seconde = first->next;
-
 	first->next = seconde->next;
 	first->previous = seconde;
-
 	if (seconde->next)
 		seconde->next->previous = first;
-
-	seconde->next = first; 
+	seconde->next = first;
 	seconde->previous = NULL;
-	
 	*stack = seconde;
 }
 

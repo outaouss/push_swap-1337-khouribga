@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sorting_algo.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: outaouss <outaouss@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/01 16:06:49 by outaouss          #+#    #+#             */
+/*   Updated: 2026/01/01 17:33:34 by outaouss         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	sort_three(t_node **stack)
@@ -32,15 +44,16 @@ void	sort_five(t_node **stack_a, t_node **stack_b)
 		pa(stack_a, stack_b);
 }
 
-void	k_sort_phase1(t_node **stack_a, t_node ** stack_b)
+void	k_sort_phase1(t_node **stack_a, t_node **stack_b)
 {
-	int	len;
 	int	range;
 	int	i;
 
 	i = 0;
-	len = stack_len(*stack_a);
-	range = (len <= 100) ? 16 : 48;
+	if (stack_len(*stack_a) <= 100)
+		range = 16;
+	else
+		range = 44;
 	while (*stack_a)
 	{
 		if ((*stack_a)->index <= i)
@@ -68,18 +81,18 @@ void	k_sort_phase2(t_node **stack_a, t_node **stack_b)
 	{
 		max_index = find_max_index(*stack_b);
 		pos = get_position(*stack_b, max_index);
-		while(*stack_b != max_index)
+		while (*stack_b != max_index)
 		{
 			if ((*stack_b)->index == max_index->index - 1)
 				pa(stack_a, stack_b);
 			else if (pos <= stack_len(*stack_b) / 2)
 				rb(stack_b);
-
 			else
 				rrb(stack_b);
 		}
 		pa(stack_a, stack_b);
-		if (*stack_a && (*stack_a)->next && (*stack_a)->index > (*stack_a)->next->index)
+		if (*stack_a && (*stack_a)->next
+			&& (*stack_a)->index > (*stack_a)->next->index)
 			sa(stack_a);
 	}
 }

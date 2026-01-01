@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parsing.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: outaouss <outaouss@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/01 16:06:33 by outaouss          #+#    #+#             */
+/*   Updated: 2026/01/01 17:08:08 by outaouss         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	stack_add_back(t_node **stack, t_node *to_add)
@@ -5,11 +17,11 @@ void	stack_add_back(t_node **stack, t_node *to_add)
 	t_node	*last;
 
 	if (!stack || !to_add)
-		return;
+		return ;
 	if (!*stack)
 	{
 		*stack = to_add;
-		return;
+		return ;
 	}
 	last = *stack;
 	while (last->next)

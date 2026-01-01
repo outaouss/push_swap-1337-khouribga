@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: outaouss <outaouss@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/01 16:06:55 by outaouss          #+#    #+#             */
+/*   Updated: 2026/01/01 16:52:38 by outaouss         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
@@ -24,13 +36,22 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (substring);
 }
 
-long	ft_atoi(char *str, t_node **stack, char **av)
+void	digit_checker(char c, char **av, t_node **stack)
 {
 	(void)av;
-	long result;
-	int i;
-	int sign;
+	if (!(c >= '0' && c <= '9'))
+		error_exit_av(stack, av);
+	else
+		return ;
+}
 
+long	ft_atoi(char *str, t_node **stack, char **av)
+{
+	long	result;
+	int		i;
+	int		sign;
+
+	(void)av;
 	result = 0;
 	i = 0;
 	sign = 1;
@@ -41,8 +62,7 @@ long	ft_atoi(char *str, t_node **stack, char **av)
 		if (str[i++] == '-')
 			sign = -sign;
 	}
-	if (!(str[i] >= '0' && str[i] <= '9'))
-		error_exit_av(stack, av);
+	digit_checker(str[i], av, stack);
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		result = (result * 10) + (str[i++] - '0');
@@ -56,11 +76,11 @@ long	ft_atoi(char *str, t_node **stack, char **av)
 
 int	has_duplicated(t_node *stack_a, long checker, char **av)
 {
-	(void)av;
 	t_node	*tmp;
-	
+
+	(void)av;
 	if (!stack_a)
-		return 0;
+		return (0);
 	tmp = stack_a;
 	while (tmp)
 	{

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rotate.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: outaouss <outaouss@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/01 16:06:41 by outaouss          #+#    #+#             */
+/*   Updated: 2026/01/01 16:15:29 by outaouss         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 t_node	*find_last_node(t_node *lst)
@@ -20,10 +32,8 @@ void	rotate(t_node **stack)
 		return ;
 	first = *stack;
 	last = find_last_node(*stack);
-
 	*stack = first->next;
 	(*stack)->previous = NULL;
-
 	last->next = first;
 	first->previous = last;
 	first->next = NULL;

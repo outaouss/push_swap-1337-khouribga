@@ -1,4 +1,34 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: outaouss <outaouss@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/01 16:06:31 by outaouss          #+#    #+#             */
+/*   Updated: 2026/01/01 17:16:30 by outaouss         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
+
+void	sort_kingdom(t_node **stack_a, t_node **stack_b)
+{
+	int	len;
+
+	len = stack_len(*stack_a);
+	if (len == 2)
+		sa(stack_a);
+	else if (len == 3)
+		sort_three(stack_a);
+	else if (len <= 5)
+		sort_five(stack_a, stack_b);
+	else
+	{
+		k_sort_phase1(stack_a, stack_b);
+		k_sort_phase2(stack_a, stack_b);
+	}
+}
 
 int	main(int ac, char **av)
 {
@@ -11,7 +41,7 @@ int	main(int ac, char **av)
 	stack_a = NULL;
 	stack_b = NULL;
 	if (ac < 2)
-		return 0;
+		return (0);
 	while (av[j])
 	{
 		args = ft_split(av[j], ' ');
@@ -21,20 +51,7 @@ int	main(int ac, char **av)
 	}
 	assign_index(stack_a);
 	if (!(is_sorted(stack_a)) && stack_len(stack_a) > 1)
-	{
-		if (stack_len(stack_a) == 2)
-				sa(&stack_a);
-		else if (stack_len(stack_a) == 3)
-			sort_three(&stack_a);
-		else if (stack_len(stack_a) <= 5)
-			sort_five(&stack_a, &stack_b);
-		else
-		{
-			k_sort_phase1(&stack_a, &stack_b);
-			k_sort_phase2(&stack_a, &stack_b);
-		}
-	}
-	// print_stack(stack_a);
+		sort_kingdom(&stack_a, &stack_b);
 	free_stack(&stack_a);
 	return (0);
 }
