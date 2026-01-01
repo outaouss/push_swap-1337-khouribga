@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: outaouss <outaouss@student.42.fr>          +#+  +:+       +#+        */
+/*   By: spilota <spilota@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/01 16:06:31 by outaouss          #+#    #+#             */
-/*   Updated: 2026/01/01 17:16:30 by outaouss         ###   ########.fr       */
+/*   Updated: 2026/01/01 23:58:06 by spilota          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@ void	sort_kingdom(t_node **stack_a, t_node **stack_b)
 
 	len = stack_len(*stack_a);
 	if (len == 2)
-		sa(stack_a);
+		sa(stack_a, 0);
 	else if (len == 3)
 		sort_three(stack_a);
 	else if (len <= 5)
 		sort_five(stack_a, stack_b);
 	else
 	{
-		k_sort_phase1(stack_a, stack_b);
-		k_sort_phase2(stack_a, stack_b);
+		shank_sort_phase1(stack_a, stack_b);
+		shank_sort_phase2(stack_a, stack_b);
 	}
 }
 

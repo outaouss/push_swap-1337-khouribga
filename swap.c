@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: outaouss <outaouss@student.42.fr>          +#+  +:+       +#+        */
+/*   By: spilota <spilota@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/01 16:06:53 by outaouss          #+#    #+#             */
-/*   Updated: 2026/01/01 16:18:51 by outaouss         ###   ########.fr       */
+/*   Updated: 2026/01/02 00:27:09 by spilota          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,21 +30,24 @@ void	swap(t_node **stack)
 	*stack = seconde;
 }
 
-void	sa(t_node **stack_a)
+void	sa(t_node **stack_a, int silent)
 {
 	swap(stack_a);
-	write(1, "sa\n", 3);
+	if (!silent)
+		write(1, "sa\n", 3);
 }
 
-void	sb(t_node **stack_b)
+void	sb(t_node **stack_b, int silent)
 {
 	swap(stack_b);
-	write(1, "sb\n", 3);
+	if (!silent)
+		write(1, "sb\n", 3);
 }
 
-void	ss(t_node **stack_a, t_node **stack_b)
+void	ss(t_node **stack_a, t_node **stack_b, int silent)
 {
 	swap(stack_a);
 	swap(stack_b);
-	write(1, "ss\n", 3);
+	if (!silent)
+		write(1, "ss\n", 3);
 }

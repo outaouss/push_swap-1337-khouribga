@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: outaouss <outaouss@student.42.fr>          +#+  +:+       +#+        */
+/*   By: spilota <spilota@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/01 16:06:41 by outaouss          #+#    #+#             */
-/*   Updated: 2026/01/01 16:15:29 by outaouss         ###   ########.fr       */
+/*   Updated: 2026/01/01 23:54:56 by spilota          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,23 +39,26 @@ void	rotate(t_node **stack)
 	first->next = NULL;
 }
 
-void	ra(t_node **stack_a)
+void	ra(t_node **stack_a, int silent)
 {
 	rotate(stack_a);
-	write(1, "ra\n", 3);
+	if (!silent)
+		write(1, "ra\n", 3);
 }
 
-void	rb(t_node **stack_b)
+void	rb(t_node **stack_b, int silent)
 {
 	rotate(stack_b);
-	write(1, "rb\n", 3);
+	if (!silent)
+		write(1, "rb\n", 3);
 }
 
-void	rr(t_node **stack_a, t_node **stack_b)
+void	rr(t_node **stack_a, t_node **stack_b, int silent)
 {
 	rotate(stack_a);
 	rotate(stack_b);
-	write(1, "rr\n", 3);
+	if (!silent)
+		write(1, "rr\n", 3);
 }
 
 // void	print_stack(t_node *head)

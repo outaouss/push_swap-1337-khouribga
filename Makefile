@@ -1,28 +1,41 @@
-NAME    = push_swap
-CC      = cc
-FLAGS   = -Wall -Wextra -Werror
+NAME        = push_swap
+BONUS_NAME  = checker
+CC          = cc
+FLAGS       = -Wall -Wextra -Werror
 
-SRC     = push.c reverse_rotate.c rotate.c swap.c main.c sort_utils.c finding.c \
-          error_utils.c utils.c parsing.c ft_split.c seconde_utils.c sorting_algo.c \
-          
-OBJ     = $(SRC:.c=.o)
+COMMON_SRC  = push.c reverse_rotate.c rotate.c swap.c sort_utils.c finding.c \
+              error_utils.c utils.c parsing.c ft_split.c seconde_utils.c \
+
+MANDATORY_SRC = main.c sorting_algo.c
+BONUS_SRC     = checker.c get_next_line/get_next_line.c \
+                get_next_line/get_next_line_utils.c
+
+COMMON_OBJ    = $(COMMON_SRC:.c=.o)
+MANDATORY_OBJ = $(MANDATORY_SRC:.c=.o)
+BONUS_OBJ     = $(BONUS_SRC:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
+$(NAME): $(COMMON_OBJ) $(MANDATORY_OBJ)
+	$(CC) $(FLAGS) $(COMMON_OBJ) $(MANDATORY_OBJ) -o $(NAME)
 	@echo "Push_swap Created!"
+
+bonus: $(BONUS_NAME)
+
+$(BONUS_NAME): $(COMMON_OBJ) $(BONUS_OBJ)
+	$(CC) $(FLAGS) $(COMMON_OBJ) $(BONUS_OBJ) -o $(BONUS_NAME)
+	@echo "Checker Created!"
 
 %.o: %.c push_swap.h
 	$(CC) $(FLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJ)
+	rm -f $(COMMON_OBJ) $(MANDATORY_OBJ) $(BONUS_OBJ)
 	@echo "Objects Deleted!"
 
 fclean: clean
-	rm -f $(NAME)
-	@echo "Executable Deleted!"
+	rm -f $(NAME) $(BONUS_NAME)
+	@echo "Executables Deleted!"
 
 re: fclean all
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: outaouss <outaouss@student.42.fr>          +#+  +:+       +#+        */
+/*   By: spilota <spilota@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/01 16:06:37 by outaouss          #+#    #+#             */
-/*   Updated: 2026/01/01 16:14:58 by outaouss         ###   ########.fr       */
+/*   Updated: 2026/01/01 23:55:43 by spilota          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,16 @@ void	push(t_node **stack_a, t_node **stack_b)
 	*stack_b = first_a;
 }
 
-void	pa(t_node **stack_a, t_node **stack_b)
+void	pa(t_node **stack_a, t_node **stack_b, int silent)
 {
 	push(stack_b, stack_a);
-	write(1, "pa\n", 3);
+	if (!silent)
+		write(1, "pa\n", 3);
 }
 
-void	pb(t_node **stack_a, t_node **stack_b)
+void	pb(t_node **stack_a, t_node **stack_b, int silent)
 {
 	push(stack_a, stack_b);
-	write(1, "pb\n", 3);
+	if (!silent)
+		write(1, "pb\n", 3);
 }
