@@ -6,7 +6,7 @@
 /*   By: spilota <spilota@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/01 16:06:41 by outaouss          #+#    #+#             */
-/*   Updated: 2026/01/01 23:54:56 by spilota          ###   ########.fr       */
+/*   Updated: 2026/01/02 18:31:19 by spilota          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,3 @@ void	rr(t_node **stack_a, t_node **stack_b, int silent)
 	if (!silent)
 		write(1, "rr\n", 3);
 }
-
-// void	print_stack(t_node *head)
-// {
-// 	while (head)
-// 	{
-// 		printf("%d\n", head->value);
-// 		head = head->next;
-// 	}
-// }

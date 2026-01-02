@@ -6,7 +6,7 @@
 /*   By: spilota <spilota@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/01 16:06:20 by outaouss          #+#    #+#             */
-/*   Updated: 2026/01/02 17:04:32 by spilota          ###   ########.fr       */
+/*   Updated: 2026/01/02 18:31:53 by spilota          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,16 +48,6 @@ void	error_exit_av(t_node **stack, char **av)
 		free_stack(stack);
 	if (av && *av)
 		free_matrix(av);
-	// else
-	// 	free(av);
-	write(2, "Error\n", 6);
-	exit(1);
-}
-
-void	error_exit(t_node **stack)
-{
-	if (stack && *stack)
-		free_stack(stack);
 	write(2, "Error\n", 6);
 	exit(1);
 }
