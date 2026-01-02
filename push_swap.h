@@ -6,7 +6,7 @@
 /*   By: spilota <spilota@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/01 16:06:35 by outaouss          #+#    #+#             */
-/*   Updated: 2026/01/02 00:02:41 by spilota          ###   ########.fr       */
+/*   Updated: 2026/01/02 17:10:43 by spilota          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	shank_sort_phase2(t_node **stack_a, t_node **stack_b);
 void	digit_checker(char c, char **av, t_node **stack);
 void	sort_kingdom(t_node **stack_a, t_node **stack_b);
 t_node	*find_last_node(t_node *lst);
-t_node	*create_node(long value, t_node **stack);
+t_node	*create_node(long value, t_node **stack, char **av);
 t_node	*find_max_index(t_node *stack);
 t_node	*find_min_index(t_node *stack);
 size_t	ft_strlen(const char *str);
@@ -72,9 +72,8 @@ char	*ft_strdup(const char *s);
 
 // Bonus Part -->
 
-int ft_strcmp(char *s1, char *s2);
-int main(int ac, char **av);
-int execute_cmd(char *cmd, t_node **a, t_node **b);
-char    *get_next_line(int fd);
+int		ft_strcmp(char *s1, char *s2);
+int		executed_cmd(char *cmd, t_node **a, t_node **b);
+char	*get_next_line(int fd);
 
 #endif

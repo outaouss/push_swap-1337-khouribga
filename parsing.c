@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: outaouss <outaouss@student.42.fr>          +#+  +:+       +#+        */
+/*   By: spilota <spilota@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/01 16:06:33 by outaouss          #+#    #+#             */
-/*   Updated: 2026/01/01 17:08:08 by outaouss         ###   ########.fr       */
+/*   Updated: 2026/01/02 17:01:21 by spilota          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,14 @@ void	stack_add_back(t_node **stack, t_node *to_add)
 	to_add->previous = last;
 }
 
-t_node	*create_node(long value, t_node **stack)
+t_node	*create_node(long value, t_node **stack, char **av)
 {
+	(void)av;
 	t_node	*new_node;
 
 	new_node = malloc(sizeof(t_node));
 	if (!new_node)
-		error_exit(stack);
+		error_exit_av(stack, av);
 	new_node->value = value;
 	new_node->next = NULL;
 	new_node->previous = NULL;
@@ -57,7 +58,7 @@ void	fill_stack_a(t_node **stack_a, char **av)
 	{
 		result = ft_atoi(av[i], stack_a, av);
 		has_duplicated(*stack_a, result, av);
-		new_node = create_node(result, stack_a);
+		new_node = create_node(result, stack_a, av);
 		stack_add_back(stack_a, new_node);
 		i++;
 	}

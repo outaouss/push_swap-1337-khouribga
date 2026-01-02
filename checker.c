@@ -14,7 +14,7 @@ int ft_strcmp(char *s1, char *s2)
     return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
 
-int execute_cmd(char *cmd, t_node **a, t_node **b)
+int executed_cmd(char *cmd, t_node **a, t_node **b)
 {
     if (ft_strcmp(cmd, "sa\n") == 0)
         sa(a, 1);
@@ -52,7 +52,7 @@ void checker_loop(t_node **a, t_node **b)
         line = get_next_line(0);
         if (!line)
             break;
-        if (execute_cmd(line, a, b) == -1)
+        if (executed_cmd(line, a, b) == -1)
         {
             free(line);
             free_stack(a);
@@ -82,11 +82,10 @@ int main(int ac, char **av)
     j = 1;
     while (av[j])
     {
-        args = ft_split(av[j++], ' ');
-        if (!args || !args[0])
-            error_exit_av(&stack_a, args);
+        args = ft_split(av[j], ' ');
         fill_stack_a(&stack_a, args);
         free_matrix(args);
+        j++;
     }
     assign_index(stack_a);
     checker_loop(&stack_a, &stack_b);

@@ -7,8 +7,7 @@ COMMON_SRC  = push.c reverse_rotate.c rotate.c swap.c sort_utils.c finding.c \
               error_utils.c utils.c parsing.c ft_split.c seconde_utils.c \
 
 MANDATORY_SRC = main.c sorting_algo.c
-BONUS_SRC     = checker.c get_next_line/get_next_line.c \
-                get_next_line/get_next_line_utils.c
+BONUS_SRC     = checker.c get_next_line.c get_next_line_utils.c
 
 COMMON_OBJ    = $(COMMON_SRC:.c=.o)
 MANDATORY_OBJ = $(MANDATORY_SRC:.c=.o)
