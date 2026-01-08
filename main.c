@@ -6,7 +6,7 @@
 /*   By: spilota <spilota@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/01 16:06:31 by outaouss          #+#    #+#             */
-/*   Updated: 2026/01/01 23:58:06 by spilota          ###   ########.fr       */
+/*   Updated: 2026/01/08 01:08:39 by spilota          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,6 @@ int	main(int ac, char **av)
 	if (!(is_sorted(stack_a)) && stack_len(stack_a) > 1)
 		sort_kingdom(&stack_a, &stack_b);
 	free_stack(&stack_a);
+	free_stack(&stack_b);
 	return (0);
 }
